@@ -51,7 +51,7 @@ function returnLargestNumber(input, input2, input3) {
       for (let j = 0; j < arrayIndexes.length; j++) {
          //interate through each array comparing one number to the next
          if (highestNumber < arrayIndexes[j]) {
-            highestNumber = arrayIndexes[j]; //basically states if a number in the index is largest than the previous, make that the new highest number
+            highestNumber = arrayIndexes[j]; //basically states if a number in the index is larger than the previous, make that the new highest number
          }
       }
       newArray.push(highestNumber); // once all highest numbers have been taken our of main array, push into a new one that only contains three values
@@ -60,3 +60,100 @@ function returnLargestNumber(input, input2, input3) {
 
    return newArray;
 }
+
+//Confirming the ending of a string
+function confirmTheEnd(string, targetOfString) {
+   let lengthOfTarget = targetOfString.length;
+   var sliceTheEnd = string.slice(string.length - lengthOfTarget); /// takes the total length of string and subtracts the targets value to see if string ends with target
+   if (sliceTheEnd == targetOfString) {
+      //if subtracted amount is equal to the targeted amount then return true;
+      return true;
+   } else {
+      return false;
+   }
+}
+
+//Repeat a String Repeat a String
+function repeatingArray(userString, repeatNumber) {
+   let repeatedResult = ""; //result will be made into a new string
+   if (repeatNumber < 1) {
+      return "" + " please enter a number greater than zero"; // result 0- (-infinity) return a empty string
+   }
+   for (let i = 0; i < repeatNumber; i++) {
+      //for loop that iterates through until value is greater than repeatNumber
+      repeatedResult += userString; // the userString will repeat according to the repeatNumber, the result will be pushed into same string over and over
+   }
+   return repeatedResult; // must return the result to see new string
+}
+
+//Truncate a String
+function truncateString(string, number) {
+   var truncated = string.slice(0, number); // slices the string at the start postions, takes the user number to see where the slice ends
+   if (truncated < string) {
+      return truncated + "..."; //if less, return the truncated amount
+   } else {
+      return string; // if truncated is longer then return the current string value
+   }
+}
+// Finders Keepers
+function findingElement(input, input2, input3) {
+   let arr = [input, input2, input3];
+   let emptiedArray = [];
+   for (var i = 0; i < arr.length; i++) {
+      //iterates through  array
+      if (arr[i] % 5 === 0) {
+         // goes through each index
+         return arr[i]; // which ever number is the first to pass the test, that number is returned
+      } //can not add return here because the loop will stop
+   }
+   if (emptiedArray.length !== 0) {
+      //if array is not empty
+      return emptiedArray.push(arr[i]); // return new array
+   } else {
+      return "Insert a number that passes the test";
+   }
+}
+
+//Basic Algorithm Scripting: Boo who
+function isABoolean(input) {
+   if (typeof input === "boolean") {
+      //if the parameter(user input) has a datatype of "boolean" return true
+      return true;
+   } else {
+      return false;
+   }
+}
+//Title Case a Sentence
+function titleCase(input) {
+   var lowerCase = input.toLowerCase(); // turns all characters in string to lowercase
+   var splitCharacters = lowerCase.split(" "); // splits all words of string into substrings inside of an array
+   var manipulateCharacters = splitCharacters.map(function (mapWords) {
+      // creates a new array which calls our function to manipulate each array element.
+      return mapWords[0].toUpperCase() + mapWords.slice(1); // mapWords is the value of each substring, we use the upperCase method on each first character[0] // adds the rest of the substring to the newly manipulated string ex. T + yler; T = mapWords[0].toUpperCase; yler = mapwords.slice[1]
+   });
+   return manipulateCharacters.join(" "); // all substring now have the first letter capitalized, use join put them back into one string seperated by spaces.
+}
+// slice and splice
+function sliceNSplice(array1, array2, index) {
+   var spliceSecondArray = array2.slice(); //creates a copy of second array so we can add the first one inside
+   spliceSecondArray.splice(index, 0, ...array1); // splice starts at index input, and does not remove any items, the full first array will be inserted in the value of the index of the second array
+   return spliceSecondArray;
+}
+
+//Falsy Bouncer
+function removeFalsy(input) {
+   let filteredArray = input.filter(function (truthy) {
+      // filter out truthy values and returns it
+      return truthy;
+   });
+   return filteredArray; //returns new strings of all truthy values
+}
+//Where do I Belong
+function sortNumbers(array, inputNum) {
+   array.push(inputNum); //push user num into array
+   array.sort((a, b) => a - b); // sorts array from least to greatest, a-b will give negative number meaning a is smaller
+   var index = array.indexOf(inputNum); // finds the index of the user num in the pushed arr
+   return index; //returns the index of the users num
+}
+
+///
