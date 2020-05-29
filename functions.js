@@ -152,8 +152,26 @@ function removeFalsy(input) {
 function sortNumbers(array, inputNum) {
    array.push(inputNum); //push user num into array
    array.sort((a, b) => a - b); // sorts array from least to greatest, a-b will give negative number meaning a is smaller
-   var index = array.indexOf(inputNum); // finds the index of the user num in the pushed arr
    return index; //returns the index of the users num
 }
 
-///
+///Basic Algorithm Scripting: Mutations
+function mutations(word1, word2) {
+   var firstWord = word1.toLowerCase();
+   var secondWord = word2.toLowerCase(); //changes letters to lower case to help compare better
+   for (var i = 0; i < secondWord.length; i++) {
+      if (firstWord.indexOf(secondWord[i]) === -1) return false;
+      //if the current index of secondword is in first word, stop loop
+   }
+   return true; //returns after loop has ended meaning all secondword's characters are in first word
+}
+//Basic Algorithm Scripting: Chunky Monkey
+function chunkyMonkeyArray(array, sizeOfArray) {
+   var newArray = []; // new array to push results in
+   while (array.length > 0) {
+      //while array length is greater than 0, keep running function
+      newArray.push(array.splice(0, sizeOfArray)); //push new array with parameters of 0 start, and length of user input
+   } /// result [2,3,4,5,6],2 === [2,3],[4,5],[6]
+   console.log(newArray);
+   return newArray;
+}
